@@ -57,15 +57,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(jwtAccessDeniedHandler)
                 // Exception 핸들링 할 때, 우리가 만들었던 클래스들을 추가해줌.
 
-
                 .and()
                 .headers()
                 .frameOptions()
                 .sameOrigin()
+                // h2 - console 위한 설정 추가
 
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                // 세션을 사용하지 않기에 세션 설정을 STATELESS
 
                 .and()
                 .authorizeRequests()
